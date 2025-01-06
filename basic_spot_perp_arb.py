@@ -262,7 +262,7 @@ class HypeSpotPerpArbitrage:
         return self.perp_order_result
     
     def place_perp_market_order(self, is_buy=False):
-        # 这里的size代表coin的个数
+        # Here the size means the units of coin rather than the units of USDC
         size = self.get_spot_balance_by_token(self.coin)
 
         if not size > 0:
@@ -288,7 +288,6 @@ class HypeSpotPerpArbitrage:
         return self.perp_market_order_result
 
     def close_positions(self):
-        
         # Sell all spot 
         print(f"We try to sell all {self.coin}.")
         coin_spot_balance = self.get_spot_balance_by_token(self.coin)
@@ -298,7 +297,6 @@ class HypeSpotPerpArbitrage:
             print(f"No spot balance. Nothing to sell.")
         
         self.is_spot_open = False
-
             
         # Close short perp
         print(f"We try to Market Close all {self.coin}.")
@@ -359,7 +357,6 @@ class HypeSpotPerpArbitrage:
 
                     
                     if not self.is_spot_open and not self.is_perp_open:
-                        # 平均分配现货和合约的USDC余额
                         self.allocation = self.allocate_spot_perp_balance()
                         self.place_spot_market_order(is_buy=True)
                         self.place_perp_market_order(is_buy=False)
