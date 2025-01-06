@@ -1,1 +1,1 @@
-# FundRateArb
+# SpotPerpArb
