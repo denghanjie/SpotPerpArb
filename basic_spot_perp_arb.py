@@ -1,5 +1,6 @@
 from hyperliquid.utils import constants
 import time
+import threading
 
 from example_utils import setup, print_json
 
@@ -7,8 +8,13 @@ class HypeSpotPerpArbitrage:
     """
     This strategy intends to buy spot and short perp to earn funding rate from hyperliquid.
     Under current version, we buy spot and sell spot as a maker, leveraging maker fee.
-    In the future version, we plan to open and close short perp as a maker too.
-    This change wll earn us more profit.
+    In the next version, we hope to open short and close short as a maker as well.
+    Using maker fee wll earn us more profit more quickly.
+
+    This strategy automatically liquidates perp positions when their value drops by 60%, 
+    followed by a reopening process after a waiting period of up to 30 minutes. 
+    Our system currently checks the value of perp positions every 5 minutes and checks the funding rate every 30 minutes.
+    The checking time durations are configurable in the code.
     """
     def __init__(self):
         self.wallet, self.info, self.exchange = setup(constants.MAINNET_API_URL, skip_ws=True)
@@ -29,6 +35,9 @@ class HypeSpotPerpArbitrage:
 
         self.perp_max_decimals = 6
         self.spot_max_decimals = 8
+
+        self.initial_position_value = None
+        self.position_value_safe_percentage = 0.4
         
     # Function to get USDC(spot) and USDC(perp) balances
     def get_usdc_balances(self):
@@ -424,39 +433,111 @@ class HypeSpotPerpArbitrage:
             return float(position_value)  # Convert the position value to float
         except (KeyError, IndexError) as e:
             print(f"Error extracting position_value: {e}")
+            print(f"Possibly because the system just closed positions. Please wait for 30 minutes.")
             return None
 
-    def run_strategy(self):
+    def check_funding_rate(self):
+        """Checks the funding rate every half hour and manages positions."""
         while True:
             try:
                 funding_rate = self.get_funding_rate_by_token(self.coin)
-                
-                # Only operates when funding_rate is positive
-                if funding_rate > 0:
 
+                # Only operate when the funding rate is positive
+                if funding_rate > 0:
                     if not self.is_spot_open and not self.is_perp_open:
                         self.allocation = self.allocate_spot_perp_balance()
                         self.place_spot_limit_order(is_buy=True)
                         self.is_spot_open = True
                         self.place_perp_market_order(is_buy=False)
                         self.is_perp_open = True
+                        self.initial_position_value = self.get_position_value()  # Store the initial position value when opening
                     else:
                         print(f"Orders are open and funding rate {funding_rate} is positive.")
-    
+                
                 else:
-
                     if self.is_spot_open and self.is_perp_open:
                         print(f"Funding rate is {funding_rate}, negative. We close positions.")
                         self.close_positions()
                         self.is_spot_open = False
                         self.is_perp_open = False
-                
-                # Check funding_rate every hour
-                time.sleep(60 * 60)
+
+                # Sleep for half an hour before checking the funding rate again
+                time.sleep(30 * 60)
 
             except Exception as e:
                 print(f"Strategy errs: {e}")
                 time.sleep(60)
+
+    def check_position_value(self):
+        """Checks if position value has fallen by 60% every 5 minutes."""
+        while True:
+            try:
+                if self.initial_position_value:
+                    current_position_value = self.get_position_value()
+
+                    # Calculate the 40% fall threshold
+                    threshold = self.initial_position_value * self.position_value_safe_percentage
+
+                    # If the position value has fallen below 40% of the original value, close the positions
+                    if current_position_value <= threshold:
+                        print(f"Position value fell by 40% (current: {current_position_value}, threshold: {threshold}). Closing positions.")
+                        self.close_positions()
+                        self.is_spot_open = False
+                        self.is_perp_open = False
+                    else:
+                        print(f"Position value is safe. Current: {current_position_value}, Threshold: {threshold}")
+
+                # Sleep for 5 minutes before checking the position value again
+                time.sleep(5 * 60)
+
+            except Exception as e:
+                print(f"Position value check error: {e}")
+                time.sleep(60)
+
+    def run_strategy(self):
+        # Run the strategy functions in separate threads to allow parallel execution
+        funding_rate_thread = threading.Thread(target=self.check_funding_rate)
+        position_value_thread = threading.Thread(target=self.check_position_value)
+        
+        # Start the threads
+        funding_rate_thread.start()
+        position_value_thread.start()
+
+        # Join the threads to run the strategy until completion
+        funding_rate_thread.join()
+        position_value_thread.join()
+    
+    # def run_strategy(self):
+    #     while True:
+    #         try:
+    #             funding_rate = self.get_funding_rate_by_token(self.coin)
+                
+    #             # Only operates when funding_rate is positive
+    #             if funding_rate > 0:
+
+    #                 if not self.is_spot_open and not self.is_perp_open:
+    #                     self.allocation = self.allocate_spot_perp_balance()
+    #                     self.place_spot_limit_order(is_buy=True)
+    #                     self.is_spot_open = True
+    #                     self.place_perp_market_order(is_buy=False)
+    #                     self.is_perp_open = True
+    #                 else:
+    #                     print(f"Orders are open and funding rate {funding_rate} is positive.")
+    
+    #             else:
+
+    #                 if self.is_spot_open and self.is_perp_open:
+    #                     print(f"Funding rate is {funding_rate}, negative. We close positions.")
+    #                     self.close_positions()
+    #                     self.is_spot_open = False
+    #                     self.is_perp_open = False
+                
+    #             # Check funding_rate every hour
+    #             time.sleep(60 * 60)
+
+    #         except Exception as e:
+    #             print(f"Strategy errs: {e}")
+    #             time.sleep(60)
             
 
 if __name__ == "__main__":
