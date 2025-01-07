@@ -1,8 +1,7 @@
 from hyperliquid.utils import constants
 import time
-import json
 
-from example_utils import setup
+from example_utils import setup, print_json
 
 class HypeSpotPerpArbitrage:
     """
@@ -17,8 +16,8 @@ class HypeSpotPerpArbitrage:
         self.coin = "HYPE"
         self.pair = self.coin + "/USDC"
 
-        self.spot_market_order_result = None
-        self.perp_market_order_result = None
+        self.spot_order_result = None
+        self.perp_order_result = None
         self.slippage = 0.01
 
         self.allocation = self.allocate_spot_perp_balance()
@@ -176,8 +175,11 @@ class HypeSpotPerpArbitrage:
         else:
             px = round(float(f"{px:.5g}"), self.perp_max_decimals - self.perp_sz_decimals[self.coin])
 
-        # Next we round sz based on the sz_decimals map we created
-        sz = round(sz, self.perp_sz_decimals[self.coin])
+        # Truncate sz to the specified number of decimal places
+        # Here we truncate sz because rounding sometimes rounds up a number, making sz*pz greater than original sz*pz.
+        decimal_places = self.perp_sz_decimals[self.coin]
+        factor = 10 ** decimal_places
+        sz = int(sz * factor) / factor
 
         return px, sz
 
@@ -190,52 +192,55 @@ class HypeSpotPerpArbitrage:
         else:
             px = round(float(f"{px:.5g}"), self.spot_max_decimals - self.spot_sz_decimals[self.coin])
 
-        # Next we round sz based on the sz_decimals map we created
-        sz = round(sz, self.spot_sz_decimals[self.coin])
+        # # Next we round sz based on the sz_decimals map we created
+        # sz = round(sz, self.spot_sz_decimals[self.coin])
         
-        # # Truncate sz to the specified number of decimal places
-        # decimal_places = self.spot_sz_decimals[self.coin]
-        # sz = float(f"{sz:.{decimal_places}f}")
+        # Truncate sz to the specified number of decimal places
+        # # Here we truncate sz because rounding sometimes rounds up a number, making sz*pz greater than original sz*pz.
+        decimal_places = self.spot_sz_decimals[self.coin]
+        factor = 10 ** decimal_places
+        sz = int(sz * factor) / factor
 
         return px, sz
 
-    def place_spot_market_order(self, is_buy=True):
-        
-        # Place the market order buy at the first ask price
+    def place_spot_limit_order(self, is_buy=True):
+        # Place limit order buy at the first ask price
         if is_buy:
-            price = self._spot_ask_price_at_level(1)
+            price = self._spot_bid_price_at_level(1)
             size = self.allocation / price
         else:
-        # Place the market order sell at the first bid price
+        # Place limit order sell at the first bid price
         # And sell all the spot balance
-            price = self._spot_bid_price_at_level(1)
+            price = self._spot_ask_price_at_level(1)
             size = self.get_spot_balance_by_token(self.coin)
 
         # Round the price and size to be compliant with hyperliquid's requirement
         price, size = self._round_spot_px_sz(price, size)
 
         # Using self.pair means this is a SPOT order.
-        self.spot_market_order_result = self.exchange.order(self.pair, is_buy, size, price, {"limit": {"tif": "Gtc"}})
+        self.spot_order_result = self.exchange.order(self.pair, is_buy, size, price, {"limit": {"tif": "Gtc"}})
 
         # Query the order status by oid and Wait for spot order to be filled before continue
         # The Waiting part only works when we place limit order.
-        if self.spot_market_order_result["status"] == "ok":
-            status = self.spot_market_order_result["response"]["data"]["statuses"][0]
+        if self.spot_order_result["status"] == "ok":
+            status = self.spot_order_result["response"]["data"]["statuses"][0]
             if "resting" in status:
-                order_status = self.exchange.info.query_order_by_oid(self.wallet, status["resting"]["oid"])
+                oid = status["resting"]["oid"]
+                order_status = self.exchange.info.query_order_by_oid(self.wallet, oid)
                 print("Order status by oid:", order_status)
 
                 # Wait until filled
                 while True:
-                    oid = status["resting"]["oid"]
                     order_status = self.exchange.info.query_order_by_oid(self.wallet, oid)
                     if order_status['order']['status'] == 'filled':
                         break
-                    print("Waiting for spot order to be filled.")
 
-        self.is_spot_open = True
+                    if is_buy:
+                        print("Waiting for spot buy order to be filled.")
+                    else:
+                        print("Waiting for spot sell order to be filled.")
 
-        return self.spot_market_order_result
+        return self.spot_order_result
     
     def _spot_ask_price_at_level(self, level):
         data = self.info.l2_snapshot(self.pair)
@@ -257,49 +262,63 @@ class HypeSpotPerpArbitrage:
         bids = data['levels'][0]  # First list in 'levels' is bids
         return float(bids[level]['px'])
         
-    def _place_perp_limit_order(self, size, price, is_buy=False):
+    def place_perp_limit_order(self, size, price, is_buy=False):
         self.perp_order_result = self.exchange.order(self.coin, is_buy, size, price, {"limit": {"tif": "Gtc"}})
-        return self.perp_order_result
-    
+
+        # print_json(self.perp_order_result)
+
+        # # Query the order status by oid
+        # if self.perp_order_result["status"] == "ok":
+        #     status = self.perp_order_result["response"]["data"]["statuses"][0]
+        #     if "resting" in status:
+        #         oid = status["resting"]["oid"]
+        #         order_status = self.info.query_order_by_oid(self.wallet, oid)
+        #         print("Order status by oid:", order_status)
+
+        #         # Wait until filled
+        #         while True:
+        #             order_status = self.exchange.info.query_order_by_oid(self.wallet, oid)
+        #             if order_status['order']['status'] == 'filled':
+        #                 break
+        #             print("Waiting for perp short order to be filled.")
+        return self.perp_order_result   
+
     def place_perp_market_order(self, is_buy=False):
         # Here the size means the units of coin rather than the units of USDC
         size = self.get_spot_balance_by_token(self.coin)
+        # price = self._perp_ask_price_at_level(1)
 
         if not size > 0:
-            print(f"No spot balance. Spot Buy May NOT SUCESSEED.")
+            print(f"No spot balance. Spot Buy May NOT SUCCEED.")
             return
         
         _, size = self._round_perp_px_sz(0.0, size)
 
         print(f"There are {size} {self.coin} in the balance.")
         print(f"We are going to open corresponding amount of short position.")
-        
-        self.perp_market_order_result = self.exchange.market_open(self.coin, is_buy, size, None, self.slippage)
-        if self.perp_market_order_result["status"] == "ok":
-            for status in self.perp_market_order_result["response"]["data"]["statuses"]:
+
+        self.perp_order_result = self.exchange.market_open(self.coin, is_buy, size, slippage=self.slippage)
+        if self.perp_order_result["status"] == "ok":
+            for status in self.perp_order_result["response"]["data"]["statuses"]:
                 try:
                     filled = status["filled"]
                     print(f'Order #{filled["oid"]} filled {filled["totalSz"]} @{filled["avgPx"]}')
                 except KeyError:
-                    print(f'Error: {status["error"]}')
+                    print(f'Error: {status["error"]}')        
 
-        self.is_perp_open = True
+        return self.perp_order_result
 
-        return self.perp_market_order_result
-
-    def close_positions(self):
+    def close_positions(self):   
         # Sell all spot 
         print(f"We try to sell all {self.coin}.")
         coin_spot_balance = self.get_spot_balance_by_token(self.coin)
         if coin_spot_balance > 0:
-            self.place_spot_market_order(is_buy=False)
+            self.place_spot_limit_order(is_buy=False)
         else:
             print(f"No spot balance. Nothing to sell.")
-        
-        self.is_spot_open = False
             
         # Close short perp
-        print(f"We try to Market Close all {self.coin}.")
+        print(f"We try to close all {self.coin}.")
         order_result = self.exchange.market_close(self.coin)
         if order_result["status"] == "ok":
             for status in order_result["response"]["data"]["statuses"]:
@@ -309,15 +328,12 @@ class HypeSpotPerpArbitrage:
                 except KeyError:
                     print(f'Error: {status["error"]}')
 
-        self.is_perp_open = False
-
     def allocate_spot_perp_balance(self):
         """
         Evenly allocate spot and perp usdc balance;
         In a word, rebalance the balance.
         Return the evenly allocated balance, which is half the total.
         """
-        # Get current balance
         balances = self.get_usdc_balances()
         usdc_spot = balances['USDC_SPOT']
         usdc_perp = balances['USDC_PERP']
@@ -340,14 +356,77 @@ class HypeSpotPerpArbitrage:
         new_balances = self.get_usdc_balances()
         new_usdc_spot = new_balances['USDC_SPOT']
         new_usdc_perp = new_balances['USDC_PERP']
+
         if abs(new_usdc_perp - allocation) < 0.0001 and abs(new_usdc_spot - allocation) < 0.0001:
             print(f"The usdc_spot is {new_usdc_spot} and the usdc_perp is {new_usdc_perp}")
             print(f"Allocation complete and successful.")
         
         return allocation
 
+    def get_position_value(self):
+        """
+        Extracts the position value from the provided data structure.
+
+        Parameters:
+        - data (dict): The input data containing position details.
+
+        # Example usage:
+        data = {
+            "marginSummary": {
+                "accountValue": "49.589238",
+                "totalNtlPos": "50.26905",
+                "totalRawUsd": "99.858288",
+                "totalMarginUsed": "50.26905"
+            },
+            "crossMarginSummary": {
+                "accountValue": "49.589238",
+                "totalNtlPos": "50.26905",
+                "totalRawUsd": "99.858288",
+                "totalMarginUsed": "50.26905"
+            },
+            "crossMaintenanceMarginUsed": "8.378175",
+            "withdrawable": "0.0",
+            "assetPositions": [
+                {
+                    "type": "oneWay",
+                    "position": {
+                        "coin": "HYPE",
+                        "szi": "-1.95",
+                        "leverage": {
+                            "type": "cross",
+                            "value": 1
+                        },
+                        "entryPx": "25.578",
+                        "positionValue": "50.26905",
+                        "unrealizedPnl": "-0.39195",
+                        "returnOnEquity": "-0.00785832",
+                        "liquidationPx": "43.89375297",
+                        "marginUsed": "50.26905",
+                        "maxLeverage": 3,
+                        "cumFunding": {
+                            "allTime": "-0.089456",
+                            "sinceOpen": "-0.002625",
+                            "sinceChange": "-0.002625"
+                        }
+                    }
+                }
+            ],
+            "time": 1736219976887
+        }
+
+        Returns:
+        - float: The value of position_value if found, otherwise None.
+        """
+        try:
+            data = self.info.user_state(address=self.wallet)
+            # Navigate through the structure to find the position_value
+            position_value = data['assetPositions'][0]['position']['positionValue']
+            return float(position_value)  # Convert the position value to float
+        except (KeyError, IndexError) as e:
+            print(f"Error extracting position_value: {e}")
+            return None
+
     def run_strategy(self):
-        
         while True:
             try:
                 funding_rate = self.get_funding_rate_by_token(self.coin)
@@ -355,20 +434,22 @@ class HypeSpotPerpArbitrage:
                 # Only operates when funding_rate is positive
                 if funding_rate > 0:
 
-                    
                     if not self.is_spot_open and not self.is_perp_open:
                         self.allocation = self.allocate_spot_perp_balance()
-                        self.place_spot_market_order(is_buy=True)
+                        self.place_spot_limit_order(is_buy=True)
+                        self.is_spot_open = True
                         self.place_perp_market_order(is_buy=False)
+                        self.is_perp_open = True
                     else:
                         print(f"Orders are open and funding rate {funding_rate} is positive.")
-                    
-                    
+    
                 else:
-                    
+
                     if self.is_spot_open and self.is_perp_open:
                         print(f"Funding rate is {funding_rate}, negative. We close positions.")
                         self.close_positions()
+                        self.is_spot_open = False
+                        self.is_perp_open = False
                 
                 # Check funding_rate every hour
                 time.sleep(60 * 60)
