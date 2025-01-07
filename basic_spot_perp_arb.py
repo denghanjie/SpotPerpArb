@@ -6,8 +6,8 @@ from example_utils import setup, print_json
 class HypeSpotPerpArbitrage:
     """
     This strategy intends to buy spot and short perp to earn funding rate from hyperliquid.
-    Under current version, we buy spot and short perp as a taker, using taker fee.
-    In the future version, we plan to buy spot and short perp as a maker, using maker fee.
+    Under current version, we buy spot and sell spot as a maker, leveraging maker fee.
+    In the future version, we plan to open and close short perp as a maker too.
     This change wll earn us more profit.
     """
     def __init__(self):
