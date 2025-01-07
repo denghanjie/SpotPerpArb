@@ -1,0 +1,979 @@
+Running with account address: 0x055d51f27c13793a195ca2fccaf7b9dfee377f0a
+Running with agent address: 0x055d51f27c13793a195ca2fccaf7b9dfee377f0a
+The current usdc_spot is 50.797289 and usdc_perp is 49.198589.
+Since usdc_spot > usdc_perp, transfer from spot to perp:  {'status': 'ok', 'response': {'type': 'default'}}
+The usdc_spot is 49.997939 and the usdc_perp is 49.997939
+Allocation complete and successful.
+The current usdc_spot is 49.997939 and usdc_perp is 49.997939.
+Since usdc_spot > usdc_perp, transfer from spot to perp:  {'status': 'ok', 'response': {'type': 'default'}}
+The usdc_spot is 49.997939 and the usdc_perp is 49.997939
+Allocation complete and successful.
+Order status by oid: {'status': 'order', 'order': {'order': {'coin': '@107', 'side': 'B', 'limitPx': '26.053', 'sz': '1.91', 'oid': 61114159981, 'timestamp': 1736233477254, 'triggerCondition': 'N/A', 'isTrigger': False, 'triggerPx': '0.0', 'children': [], 'isPositionTpsl': False, 'reduceOnly': False, 'orderType': 'Limit', 'origSz': '1.91', 'tif': 'Gtc', 'cloid': None}, 'status': 'open', 'statusTimestamp': 1736233477254}}
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+There are 1.91 HYPE in the balance.
+We are going to open corresponding amount of short position.
+Order #61114371336 filled 1.91 @26.063
+Position value is safe. Current: 49.9465, Threshold: 29.872782
+Position value is safe. Current: 49.94268, Threshold: 29.872782
+Position value is safe. Current: 49.99616, Threshold: 29.872782
+Position value is safe. Current: 50.042, Threshold: 29.872782
+Position value is safe. Current: 50.21581, Threshold: 29.872782
+Position value is safe. Current: 49.82044, Threshold: 29.872782
+Funding rate is -2.624e-05, negative. We close positions.
+We try to sell all HYPE.
+Order status by oid: {'status': 'order', 'order': {'order': {'coin': '@107', 'side': 'A', 'limitPx': '26.059', 'sz': '1.91', 'oid': 61117081822, 'timestamp': 1736235384359, 'triggerCondition': 'N/A', 'isTrigger': False, 'triggerPx': '0.0', 'children': [], 'isPositionTpsl': False, 'reduceOnly': False, 'orderType': 'Limit', 'origSz': '1.91', 'tif': 'Gtc', 'cloid': None}, 'status': 'open', 'statusTimestamp': 1736235384359}}
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+We try to close all HYPE.
+Order #61117110609 filled 1.91 @26.056
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+The current usdc_spot is 50.004422 and usdc_perp is 49.976468.
+Since usdc_spot > usdc_perp, transfer from spot to perp:  {'status': 'ok', 'response': {'type': 'default'}}
+The usdc_spot is 49.990445 and the usdc_perp is 49.990445
+Allocation complete and successful.
+Order status by oid: {'status': 'order', 'order': {'order': {'coin': '@107', 'side': 'B', 'limitPx': '25.998', 'sz': '1.92', 'oid': 61119640275, 'timestamp': 1736237192073, 'triggerCondition': 'N/A', 'isTrigger': False, 'triggerPx': '0.0', 'children': [], 'isPositionTpsl': False, 'reduceOnly': False, 'orderType': 'Limit', 'origSz': '1.92', 'tif': 'Gtc', 'cloid': None}, 'status': 'open', 'statusTimestamp': 1736237192073}}
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+There are 1.92 HYPE in the balance.
+We are going to open corresponding amount of short position.
+Order #61119644539 filled 1.92 @25.9882
+Position value is safe. Current: 49.9296, Threshold: 29.961216
+Position value is safe. Current: 49.97376, Threshold: 29.961216
+Position value is safe. Current: 49.99872, Threshold: 29.961216
+Position value is safe. Current: 49.7472, Threshold: 29.961216
+Position value is safe. Current: 49.93536, Threshold: 29.961216
+Position value is safe. Current: 50.04864, Threshold: 29.961216
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 50.11008, Threshold: 29.961216
+Position value is safe. Current: 50.112, Threshold: 29.961216
+Position value is safe. Current: 50.112, Threshold: 29.961216
+Position value is safe. Current: 49.97376, Threshold: 29.961216
+Position value is safe. Current: 49.91616, Threshold: 29.961216
+Position value is safe. Current: 49.91424, Threshold: 29.961216
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.86048, Threshold: 29.961216
+Position value is safe. Current: 49.95648, Threshold: 29.961216
+Position value is safe. Current: 49.93152, Threshold: 29.961216
+Position value is safe. Current: 49.77024, Threshold: 29.961216
+Position value is safe. Current: 49.89504, Threshold: 29.961216
+Position value is safe. Current: 49.89312, Threshold: 29.961216
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.59936, Threshold: 29.961216
+Position value is safe. Current: 49.62048, Threshold: 29.961216
+Position value is safe. Current: 49.60704, Threshold: 29.961216
+Position value is safe. Current: 49.62624, Threshold: 29.961216
+Position value is safe. Current: 49.6416, Threshold: 29.961216
+Position value is safe. Current: 49.58976, Threshold: 29.961216
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.42656, Threshold: 29.961216
+Position value is safe. Current: 49.26912, Threshold: 29.961216
+Position value is safe. Current: 49.33824, Threshold: 29.961216
+Position value is safe. Current: 49.27872, Threshold: 29.961216
+Position value is safe. Current: 49.32864, Threshold: 29.961216
+Position value is safe. Current: 49.41504, Threshold: 29.961216
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.41504, Threshold: 29.961216
+Position value is safe. Current: 49.61856, Threshold: 29.961216
+Position value is safe. Current: 49.51296, Threshold: 29.961216
+Position value is safe. Current: 49.488, Threshold: 29.961216
+Position value is safe. Current: 49.47072, Threshold: 29.961216
+Position value is safe. Current: 49.488, Threshold: 29.961216
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.65312, Threshold: 29.961216
+Position value is safe. Current: 49.47072, Threshold: 29.961216
+Position value is safe. Current: 49.52832, Threshold: 29.961216
+Position value is safe. Current: 49.38432, Threshold: 29.961216
+Position value is safe. Current: 49.39776, Threshold: 29.961216
+Position value is safe. Current: 49.34016, Threshold: 29.961216
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 48.912, Threshold: 29.961216
+Position value is safe. Current: 48.60288, Threshold: 29.961216
+Position value is safe. Current: 48.39936, Threshold: 29.961216
+Position value is safe. Current: 48.37632, Threshold: 29.961216
+Position value is safe. Current: 48.62976, Threshold: 29.961216
+Position value is safe. Current: 48.65664, Threshold: 29.961216
+Funding rate is -6.728e-05, negative. We close positions.
+We try to sell all HYPE.
+Order status by oid: {'status': 'order', 'order': {'order': {'coin': '@107', 'side': 'A', 'limitPx': '25.363', 'sz': '1.92', 'oid': 61148818526, 'timestamp': 1736251603016, 'triggerCondition': 'N/A', 'isTrigger': False, 'triggerPx': '0.0', 'children': [], 'isPositionTpsl': False, 'reduceOnly': False, 'orderType': 'Limit', 'origSz': '1.92', 'tif': 'Gtc', 'cloid': None}, 'status': 'open', 'statusTimestamp': 1736251603016}}
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+Waiting for spot sell order to be filled.
+We try to close all HYPE.
+Order #61148830694 filled 1.92 @25.33
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+Error extracting position_value: list index out of range
+Position value check error: '<=' not supported between instances of 'NoneType' and 'float'
+The current usdc_spot is 48.766376 and usdc_perp is 51.222268.
+Since usdc_perp > usdc_spot, transfer from perp to spot:  {'status': 'ok', 'response': {'type': 'default'}}
+The usdc_spot is 49.994322 and the usdc_perp is 49.994322
+Allocation complete and successful.
+Order status by oid: {'status': 'order', 'order': {'order': {'coin': '@107', 'side': 'B', 'limitPx': '25.479', 'sz': '1.96', 'oid': 61153240310, 'timestamp': 1736253412307, 'triggerCondition': 'N/A', 'isTrigger': False, 'triggerPx': '0.0', 'children': [], 'isPositionTpsl': False, 'reduceOnly': False, 'orderType': 'Limit', 'origSz': '1.96', 'tif': 'Gtc', 'cloid': None}, 'status': 'open', 'statusTimestamp': 1736253412307}}
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+Waiting for spot buy order to be filled.
+There are 1.96 HYPE in the balance.
+We are going to open corresponding amount of short position.
+Order #61153280591 filled 1.96 @25.454
+Position value is safe. Current: 49.89964, Threshold: 29.948015999999996
+Position value is safe. Current: 49.9996, Threshold: 29.948015999999996
+Position value is safe. Current: 49.88592, Threshold: 29.948015999999996
+Position value is safe. Current: 49.79968, Threshold: 29.948015999999996
+Position value is safe. Current: 49.64288, Threshold: 29.948015999999996
+Position value is safe. Current: 49.4606, Threshold: 29.948015999999996
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.76244, Threshold: 29.948015999999996
+Position value is safe. Current: 49.78792, Threshold: 29.948015999999996
+Position value is safe. Current: 49.57624, Threshold: 29.948015999999996
+Position value is safe. Current: 49.55664, Threshold: 29.948015999999996
+Position value is safe. Current: 49.7448, Threshold: 29.948015999999996
+Position value is safe. Current: 49.80164, Threshold: 29.948015999999996
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.63308, Threshold: 29.948015999999996
+Position value is safe. Current: 49.73892, Threshold: 29.948015999999996
+Position value is safe. Current: 49.84476, Threshold: 29.948015999999996
+Position value is safe. Current: 49.83496, Threshold: 29.948015999999996
+Position value is safe. Current: 49.91728, Threshold: 29.948015999999996
+Position value is safe. Current: 49.96628, Threshold: 29.948015999999996
+Orders are open and funding rate 2.435e-05 is positive.
+Position value is safe. Current: 49.85456, Threshold: 29.948015999999996
+Position value is safe. Current: 49.56448, Threshold: 29.948015999999996
+Position value is safe. Current: 49.63308, Threshold: 29.948015999999996
+Position value is safe. Current: 49.89376, Threshold: 29.948015999999996
+Position value is safe. Current: 50.04076, Threshold: 29.948015999999996
+Position value is safe. Current: 49.99372, Threshold: 29.948015999999996
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.81536, Threshold: 29.948015999999996
+Position value is safe. Current: 49.63896, Threshold: 29.948015999999996
+Position value is safe. Current: 49.73108, Threshold: 29.948015999999996
+Position value is safe. Current: 49.7252, Threshold: 29.948015999999996
+Position value is safe. Current: 49.45668, Threshold: 29.948015999999996
+Position value is safe. Current: 49.11172, Threshold: 29.948015999999996
+Orders are open and funding rate 1.25e-05 is positive.
+Position value is safe. Current: 49.00196, Threshold: 29.948015999999996
+Position value is safe. Current: 48.99608, Threshold: 29.948015999999996
+Position value is safe. Current: 48.902, Threshold: 29.948015999999996
+Position value is safe. Current: 48.45316, Threshold: 29.948015999999996
+Position value is safe. Current: 48.608, Threshold: 29.948015999999996
+Position value is safe. Current: 48.1768, Threshold: 29.948015999999996
