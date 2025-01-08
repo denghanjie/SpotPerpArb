@@ -16,11 +16,11 @@ class HypeSpotPerpArbitrage:
     Our system currently checks the value of perp positions every 5 minutes and checks the funding rate every 30 minutes.
     The checking time durations are configurable in the code.
     """
-    def __init__(self):
+    def __init__(self, coin):
         self.wallet, self.info, self.exchange = setup(constants.MAINNET_API_URL, skip_ws=True)
         
-        self.coin = "HYPE"
-        self.pair = self.coin + "/USDC"
+        self.coin = coin
+        self.pair = coin + "/USDC"
 
         self.spot_order_result = None
         self.perp_order_result = None
@@ -541,5 +541,5 @@ class HypeSpotPerpArbitrage:
             
 
 if __name__ == "__main__":
-    arbitrage = HypeSpotPerpArbitrage()
+    arbitrage = HypeSpotPerpArbitrage("HYPE")
     arbitrage.run_strategy()
