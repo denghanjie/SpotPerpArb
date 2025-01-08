@@ -252,6 +252,11 @@ class HypeSpotPerpArbitrage:
         return self.spot_order_result
     
     def _spot_ask_price_at_level(self, level):
+        """
+        A side note for info.l2_snapshot function.
+        If we use pair(e.g. HYPE/USDC) as parameter, it returns the pair's spot order book.
+        If we use coin(HYPE) as parameter, it returns the coin's perp order book.
+        """
         data = self.info.l2_snapshot(self.pair)
         asks = data['levels'][1]  # Second list in 'levels' is asks
         return float(asks[level]['px'])
