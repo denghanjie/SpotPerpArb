@@ -26,10 +26,10 @@ class HypeSpotPerpArbitrage:
         self.perp_order_result = None
         self.slippage = 0.01
 
-        # self.allocation = self.allocate_spot_perp_balance()
         self.spot_sz_decimals = self._get_spot_sz_decimals()
         self.perp_sz_decimals = self._get_perp_sz_decimals()
 
+        self.allocation = None
         self.is_spot_open = False
         self.is_perp_open = False
 
