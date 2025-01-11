@@ -11,31 +11,29 @@ class HypeSpotPerpArbitrage:
     In the next version, we hope to open short and close short as a maker as well.
     Using maker fee wll earn us more profit more quickly.
 
-    This strategy automatically liquidates perp positions when their value drops by 60%, 
-    followed by a reopening process after a waiting period of up to 30 minutes. 
-    Our system currently checks the value of perp positions every 5 minutes and checks the funding rate every 30 minutes.
-    The checking time durations are configurable in the code.
+    We check funding_rate every 15 minutes and check account_value every 5 minutes.
     """
     def __init__(self, coin):
         self.wallet, self.info, self.exchange = setup(constants.MAINNET_API_URL, skip_ws=True)
         
         self.coin = coin
-        self.pair = coin + "/USDC"
+        self.pair = self.coin + "/USDC"
 
         self.spot_order_result = None
         self.perp_order_result = None
         self.slippage = 0.01
 
+        # self.allocation = self.allocate_spot_perp_balance()
         self.spot_sz_decimals = self._get_spot_sz_decimals()
         self.perp_sz_decimals = self._get_perp_sz_decimals()
 
-        self.allocation = None
         self.is_spot_open = False
         self.is_perp_open = False
 
         self.perp_max_decimals = 6
         self.spot_max_decimals = 8
 
+        # The following two attributes are deprecated as is the function check_position_value
         self.initial_position_value = None
         self.position_value_safe_percentage = 0.4
         
@@ -152,6 +150,33 @@ class HypeSpotPerpArbitrage:
         else:
             return f"Token {token_name} not found in universe."
 
+    # Function to get mark price by token_name
+    def get_markPx_by_token(self, token_name):
+        token_mark_price = self._get_token_markPx()
+        if token_name in token_mark_price:
+            return token_mark_price[token_name]
+        else:
+            print(f"There is no mark price for {token_name}. We'll just return 0.0.")
+            return 0.0
+
+    def _get_token_markPx(self):
+        """
+        Returns a dict,{token_name: mark_prie}
+        """
+        # Get meta and asset context info
+        data = self.info.meta_and_asset_ctxs() 
+
+        # Extract token names from the universe list
+        token_names = [item['name'] for item in data[0]['universe']]
+        
+        # Extract markPx values from the market data and map them to token names
+        token_mark_pxs = {}
+        for i, item in enumerate(data[1]):
+            if i < len(token_names):
+                token_mark_pxs[token_names[i]] = float(item.get('markPx'))
+        
+        return token_mark_pxs
+
     def _get_perp_sz_decimals(self):
         # Get the exchange's metadata and print it out
         meta = self.info.meta()
@@ -213,13 +238,13 @@ class HypeSpotPerpArbitrage:
         return px, sz
 
     def place_spot_limit_order(self, is_buy=True):
-        # Place limit order buy at the first ask price
+            # Place limit order buy at the first ask price
         if is_buy:
             price = self._spot_bid_price_at_level(1)
             size = self.allocation / price
         else:
-        # Place limit order sell at the first bid price
-        # And sell all the spot balance
+            # Place limit order sell at the first bid price
+            # And sell all the spot balance
             price = self._spot_ask_price_at_level(1)
             size = self.get_spot_balance_by_token(self.coin)
 
@@ -252,11 +277,6 @@ class HypeSpotPerpArbitrage:
         return self.spot_order_result
     
     def _spot_ask_price_at_level(self, level):
-        """
-        A side note for info.l2_snapshot function.
-        If we use pair(e.g. HYPE/USDC) as parameter, it returns the pair's spot order book.
-        If we use coin(HYPE) as parameter, it returns the coin's perp order book.
-        """
         data = self.info.l2_snapshot(self.pair)
         asks = data['levels'][1]  # Second list in 'levels' is asks
         return float(asks[level]['px'])
@@ -380,6 +400,8 @@ class HypeSpotPerpArbitrage:
     def get_position_value(self):
         """
         Extracts the position value from the provided data structure.
+        
+        Position Value = Position Size * Mark Price
 
         Parameters:
         - data (dict): The input data containing position details.
@@ -452,10 +474,9 @@ class HypeSpotPerpArbitrage:
                     if not self.is_spot_open and not self.is_perp_open:
                         self.allocation = self.allocate_spot_perp_balance()
                         self.place_spot_limit_order(is_buy=True)
-                        self.is_spot_open = True
                         self.place_perp_market_order(is_buy=False)
                         self.is_perp_open = True
-                        self.initial_position_value = self.get_position_value()  # Store the initial position value when opening
+                        # self.initial_position_value = self.get_position_value()
                     else:
                         print(f"Orders are open and funding rate {funding_rate} is positive.")
                 
@@ -466,15 +487,19 @@ class HypeSpotPerpArbitrage:
                         self.is_spot_open = False
                         self.is_perp_open = False
 
-                # Sleep for half an hour before checking the funding rate again
-                time.sleep(30 * 60)
+                # Sleep for 15 minutes before checking the funding rate again
+                time.sleep(15 * 60)
 
             except Exception as e:
                 print(f"Strategy errs: {e}")
                 time.sleep(60)
-
+    
+    # This function is deprecated.
     def check_position_value(self):
-        """Checks if position value has fallen by 60% every 5 minutes."""
+        """
+        Checks if position value has fallen by 60% every 5 minutes.
+        This function is deprecated since position value is not account value.
+        """
         while True:
             try:
                 if self.initial_position_value:
@@ -499,51 +524,147 @@ class HypeSpotPerpArbitrage:
                 print(f"Position value check error: {e}")
                 time.sleep(60)
 
+    def check_account_value(self):
+        while True:
+            try:
+                user_state = self.info.user_state(address=self.wallet)
+                if self.is_perp_open:
+                    relevant_values = self._extract_relevant_values(user_state)
+                    self._check_and_warn(relevant_values)
+                else:
+                    print("Perps not open yet. Waiting for perps to open.")
+
+                # Sleep for 5 minutes before checking the account value again
+                time.sleep(5 * 60)
+
+            except Exception as e:
+                print(f"Account value check error: {e}")
+                time.sleep(60)
+
+    def _extract_relevant_values(self, data):
+        """
+        Extracts relevant values from the provided data.
+        
+        Parameters:
+            data (dict): JSON data containing margin and position details.
+        
+        Returns:
+            dict: A dictionary containing the relevant extracted values.
+
+            # Example data from your JSON
+        data = {
+            "marginSummary": {
+                "accountValue": "58.747197",
+                "totalNtlPos": "41.356",
+                "totalRawUsd": "100.103197",
+                "totalMarginUsed": "41.356"
+            },
+            "crossMarginSummary": {
+                "accountValue": "58.747197",
+                "totalNtlPos": "41.356",
+                "totalRawUsd": "100.103197",
+                "totalMarginUsed": "41.356"
+            },
+            "crossMaintenanceMarginUsed": "6.892666",
+            "assetPositions": [
+                {
+                    "type": "oneWay",
+                    "position": {
+                        "coin": "HYPE",
+                        "szi": "-1.96",
+                        "leverage": {
+                            "type": "cross",
+                            "value": 1
+                        },
+                        "entryPx": "25.454",
+                        "positionValue": "41.356",
+                        "unrealizedPnl": "8.53384",
+                        "returnOnEquity": "0.17105367",
+                        "liquidationPx": "43.7769086",
+                        "marginUsed": "41.356",
+                        "maxLeverage": 3,
+                        "cumFunding": {
+                            "allTime": "-0.330918",
+                            "sinceOpen": "-0.236496",
+                            "sinceChange": "-0.236496"
+                        }
+                    }
+                }
+            ],
+            "time": 1736481449739
+        }
+        """
+        # Extract relevant values
+        account_value = float(data["crossMarginSummary"]["accountValue"])
+        cross_maintenance_margin_used = float(data["crossMaintenanceMarginUsed"])
+        position = data["assetPositions"][0]["position"]
+        liquidation_price = float(position["liquidationPx"])
+        mark_price = self.get_markPx_by_token(self.coin) 
+        
+        # Return extracted values as a dictionary
+        return {
+            "account_value": account_value,
+            "maintenance_margin": cross_maintenance_margin_used,
+            "liquidation_price": liquidation_price,
+            "mark_price": mark_price
+        }
+
+    def _check_and_warn(self, values):
+        """
+        Checks if the account value is close to the maintenance margin or the price is near liquidation.
+        Generates warnings if necessary.
+        
+        Parameters:
+            values (dict): Dictionary of extracted relevant values.
+            
+            {
+            "account_value": account_value,
+            "maintenance_margin": cross_maintenance_margin_used,
+            "liquidation_price": liquidation_price,
+            "current_price": current_price
+            }
+        
+        Returns:
+            None
+        """
+        # Unpack values
+        account_value = values["account_value"]
+        maintenance_margin = values["maintenance_margin"]
+        liquidation_price = values["liquidation_price"]
+        mark_price = values["mark_price"]
+        
+        # Define a warning threshold (e.g., account value close to 1.2x maintenance margin)
+        warning_threshold = maintenance_margin * 1.2
+
+        print("Checking account status...")
+        print(f"Account Value: {account_value}")
+        print(f"Cross Maintenance Margin Used: {maintenance_margin}")
+        print(f"Warning Threshold: {warning_threshold}")
+        print(f"Liquidation Price: {liquidation_price}")
+        print(f"Mark Price: {mark_price}")
+        
+        # Check if account value is close to or below the threshold
+        if account_value <= warning_threshold:
+            print("\n⚠️ Warning: Account value is close to the maintenance margin threshold.")
+            print("Consider reducing your position to avoid liquidation!")
+        elif mark_price >= liquidation_price:
+            print("\n⚠️ Warning: The current mark price is close to the liquidation price!")
+            print("Consider taking action to avoid liquidation!")
+        else:
+            print("\n✅ Your account is safe for now.")
+
     def run_strategy(self):
         # Run the strategy functions in separate threads to allow parallel execution
         funding_rate_thread = threading.Thread(target=self.check_funding_rate)
-        position_value_thread = threading.Thread(target=self.check_position_value)
+        account_value_thread = threading.Thread(target=self.check_account_value)
         
         # Start the threads
         funding_rate_thread.start()
-        position_value_thread.start()
+        account_value_thread.start()
 
         # Join the threads to run the strategy until completion
         funding_rate_thread.join()
-        position_value_thread.join()
-    
-    # def run_strategy(self):
-    #     while True:
-    #         try:
-    #             funding_rate = self.get_funding_rate_by_token(self.coin)
-                
-    #             # Only operates when funding_rate is positive
-    #             if funding_rate > 0:
-
-    #                 if not self.is_spot_open and not self.is_perp_open:
-    #                     self.allocation = self.allocate_spot_perp_balance()
-    #                     self.place_spot_limit_order(is_buy=True)
-    #                     self.is_spot_open = True
-    #                     self.place_perp_market_order(is_buy=False)
-    #                     self.is_perp_open = True
-    #                 else:
-    #                     print(f"Orders are open and funding rate {funding_rate} is positive.")
-    
-    #             else:
-
-    #                 if self.is_spot_open and self.is_perp_open:
-    #                     print(f"Funding rate is {funding_rate}, negative. We close positions.")
-    #                     self.close_positions()
-    #                     self.is_spot_open = False
-    #                     self.is_perp_open = False
-                
-    #             # Check funding_rate every hour
-    #             time.sleep(60 * 60)
-
-    #         except Exception as e:
-    #             print(f"Strategy errs: {e}")
-    #             time.sleep(60)
-            
+        account_value_thread.join()            
 
 if __name__ == "__main__":
     arbitrage = HypeSpotPerpArbitrage("HYPE")
