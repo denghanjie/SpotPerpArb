@@ -1,3 +1,7 @@
+# Intro
+The gist of this arbitrage is to buy spot and open short such that we get zero risk but at the same time make money through collecting funding payment.
+The biggest cost of this arbitrage is trading fee so we spent a lot of time trying to leverage maker fee.
+
 # SpotPerpArb
 
 This is a very rudimentary version of SpotPerpArb on Hyperliquid.
